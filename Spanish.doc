@@ -1,0 +1,15 @@
+Esta librería pretende ser una simplificación del proceso de lectura/escritura a través de puertos serie entre sistemas basados en Windows
+Windows y otros sistemas de cualquier arquitectura y sistema operativo que comunique información mediante puerto serie.
+
+https://es.wikipedia.org/wiki/Puerto_serie
+
+Es interesante y útil en sistemas embebidos así como microcontroladores que se comunican de esta manera tales como arduino, raspberry pii,
+Intel Edison...
+
+Se ha intentado abstraer de la mejor manera posible la solución a este problema con la finalidad de dar una solucion lo más cohesionada
+y acoplada posible, facilitando la lectura y escritura por dicho puerto mediante métodos intuitivos como el almacenamiento en un "buffer"
+de lectura, o el envío de los datos recibidos a una función que previamente el programador define como manejador de eventos(veáse EventHandler)
+
+Con esto, se crea la clase CoreCOM, que encapsula en ella todos los atributos necesarios para brindar la solución previamente mencionada.
+
+
