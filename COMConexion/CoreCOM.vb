@@ -7,17 +7,25 @@ Public Class CoreCOM
     Private _ThreadWrite As New Threading.Thread(AddressOf WriteThread)
     Private _ModeRead As ModeRead
     Private _Buffer As String
+    Private _FuncAsync As EventHandler
 
     Public Enum ModeRead
-        ReadToFindValue = 1
-        ReadLine = 2
-        Read = 3
+        ReadLine = 1
+        ReadAdviser = 2
     End Enum
 
-    Public Sub New(Optional ByVal fillList As Boolean = False)
+    Public Sub New(Optional ByVal fillList As Boolean = True)
         If fillList Then
             GetPortsEnabled()
         End If
+
+    End Sub
+
+    Public Sub New(ByVal adviser As EventHandler, Optional ByVal fillList As Boolean = True)
+        If fillList Then
+            GetPortsEnabled()
+        End If
+        _FuncAsync = adviser
     End Sub
 
     Public Property PortList As List(Of SerialPort)
@@ -140,10 +148,11 @@ Public Class CoreCOM
     Private Sub ReadThread()
         While True
             Select Case _ModeRead
-                Case ModeRead.Read
                 Case ModeRead.ReadLine
-                    _PortOpened.ReadLine()
-                Case ModeRead.ReadToFindValue
+                    _Buffer &= _PortOpened.ReadLine()
+                Case ModeRead.ReadAdviser
+                    _Buffer &= _PortOpened.ReadLine()
+                    _FuncAsync.Invoke(Me, Nothing)
             End Select
         End While
     End Sub
