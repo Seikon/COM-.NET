@@ -5,7 +5,7 @@ Introduction:
 This library is intended as a simplification of the process of reading / writing via serial ports between Windows-based systems
 and other systems of any architecture and operating system to provide information via serial port.
 
-https://es.wikipedia.org/wiki/Puerto_serie
+https://en.wikipedia.org/wiki/Serial_port
 
 It is interesting and useful in embedded systems and microcontrollers that communicate in this way such as arduino, raspberry pii,
 Intel Edison ... among many others.
