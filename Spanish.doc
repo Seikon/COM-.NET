@@ -7,7 +7,7 @@ Es interesante y útil en sistemas embebidos así como microcontroladores que se
 Intel Edison...Entre otros tantos.
 
 Se ha intentado abstraer de la mejor manera posible la solución a este problema con la finalidad de dar una solucion lo más cohesionada
-y con bajo posible, facilitando la lectura y escritura por dicho puerto mediante métodos intuitivos como el almacenamiento en un "buffer"
+y con bajo acoplamiento posible, facilitando la lectura y escritura por dicho puerto mediante métodos intuitivos como el almacenamiento en un "buffer"
 de lectura, o el envío de los datos recibidos a una función que previamente el programador define como manejador de eventos(veáse EventHandler)
 
 Con esto, se crea la clase CoreCOM, que encapsula en ella todos los atributos necesarios para brindar la solución previamente mencionada.
