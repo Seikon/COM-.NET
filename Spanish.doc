@@ -1,15 +1,31 @@
 Esta librería pretende ser una simplificación del proceso de lectura/escritura a través de puertos serie entre sistemas basados en Windows
-Windows y otros sistemas de cualquier arquitectura y sistema operativo que comunique información mediante puerto serie.
+y otros sistemas de cualquier arquitectura y sistema operativo que comunique información mediante puerto serie.
 
 https://es.wikipedia.org/wiki/Puerto_serie
 
 Es interesante y útil en sistemas embebidos así como microcontroladores que se comunican de esta manera tales como arduino, raspberry pii,
-Intel Edison...
+Intel Edison...Entre otros tantos.
 
 Se ha intentado abstraer de la mejor manera posible la solución a este problema con la finalidad de dar una solucion lo más cohesionada
-y acoplada posible, facilitando la lectura y escritura por dicho puerto mediante métodos intuitivos como el almacenamiento en un "buffer"
+y con bajo posible, facilitando la lectura y escritura por dicho puerto mediante métodos intuitivos como el almacenamiento en un "buffer"
 de lectura, o el envío de los datos recibidos a una función que previamente el programador define como manejador de eventos(veáse EventHandler)
 
 Con esto, se crea la clase CoreCOM, que encapsula en ella todos los atributos necesarios para brindar la solución previamente mencionada.
+
+Para empezar a usar la librería, basta con instanciar un objeto de la clase CoreCOM y abrir uno de sus puertos (el cual utilizará para leer o escribir bytes, caracteres o strings).
+
+En el fichero Example.vb se puede ver un ejemplo completo de lectura y escritura después de haber abierto uno de los puertos del sistema disponibles.
+
+- Dentro de la lectura de datos, podemos encontrar dos modos de hacerlo:
+
+ReadLine -> Lee una linea recibida por el puerto serie y almacena el contenido al atributo "Buffer" mediante un thread que lee de manera indefinida sobre el puerto.
+
+ReadAdviser -> Ejecuta una función previamente pasada como parametro en el constructor de la clase. Cada vez que lee datos sobre el puerto serie,
+esta función es invocada como un objeto Eventhandler.
+
+-Dentro de la escritura de datos, podemos encontrar dos manera de hacerlo para varios tipos de dato (mediante sobrecarga de funciones):
+
+-WriteLine(String) -> Escribe por el puerto serie incluyendo un caracter de salto de linea al final.
+-Write(byte[]|string|char[]) -> Escribe los tipos de dato byte[], string o char[] por el puerto serie.
 
 
