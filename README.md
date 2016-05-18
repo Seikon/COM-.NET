@@ -22,7 +22,7 @@ In the Example.vb file you can see a complete example of reading and writing aft
 
 - In reading data, we can find two ways to do this:
 
-ReadLine -> Read a line received by the serial port and stores content attribute "Buffer" by a thread that reads indefinitely over the harbor.
+ReadLine -> Read a line received by the serial port and stores content attribute "Buffer" by a thread that reads indefinitely over the port..
 
 ReadAdviser -> Executes a function previously passed as a parameter in the constructor of the class. Each time you read data on the serial port,
 This function is invoked as an EventHandler object.
